@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            font-family: sans-serif;
+        }
+        #navbar{
+            display: flex;
+            align-items: center;
+            border: 2px solid red;
+        }
+
+      
+        
+        .navitems{
+            border: 2px solid rgb(165, 217, 52);
+            display: inline-block;
+            position: absolute;
+            right: 30px;
+            
+        }
+        .navitems li{
+            display: inline-block;
+            padding: 10px;
+            font-size: 20px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .navitems li a{
+            
+            color: black;
+            text-decoration: none;
+        }
+
+        .navitems li a:hover ,.navitems li a.active{
+            
+            color: grey;
+            text-decoration: underline;
+        }
+
+
+        #logo{
+            
+            margin: 7px 15px;
+            border: 3px solid rgb(134, 8, 212);
+
+        }
+
+        #logo img{
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="navitems">
+
+            <ul>
+                <li class="item"><a href="" class="active">Home</a></li>
+                <li class="item"><a href="">Service</a></li>
+                <li class="item"><a href="">About</a></li>
+                <li class="item"><a href="">Contact</a></li>
+    
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
