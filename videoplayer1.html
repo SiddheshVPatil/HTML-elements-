@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #1c1a1a;
+        }
+        .heading{
+            color: rgb(255, 255, 255);
+            font-size: 40px;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .cont{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+            align-items: flex-start;
+            padding: 5px 5%;
+        }
+
+        .cont .mainvideo{
+            background-color: #0f0e0e;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .cont .mainvideo video{
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .cont .mainvideo .title{
+            color: #ede4e4;
+            font-size: 23px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .cont .vidlist{
+            background: #050505;
+            border-radius: 5px;
+            height: 550px;
+            overflow-y: scroll;
+
+        }
+
+        .cont .vidlist::-webkit-scrollbar{
+            width: 7px;
+        }
+
+        .cont .vidlist::-webkit-scrollbar-track{
+            background: #ccc;
+            border-radius: 50px;
+        }
+
+        .cont .vidlist::-webkit-scrollbar-thumb{
+            background: #4b4747;
+            border-radius: 50px;
+        }
+
+        .cont .vidlist .vid video{
+
+            width: 100px;
+            border-radius: 5px;
+
+        }
+
+        .cont .vidlist .vid{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #1f1d1d;
+
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid rgba(0, 0,0 ,0.1);
+            cursor: pointer;
+        }
+
+        .cont .vidlist .vid:hover{
+            background: #4e4b4f;
+           
+        }
+
+        .cont .vidlist .vid.active{
+            background: #4e4b4f;
+
+        }
+
+        .cont .vidlist .vid.active .title{
+            color: #f0e3e3;
+        }
+
+        .cont .vidlist .vid .title{
+            color: #e0d7d7;
+            font-size: 17px;
+        }
+
+        .cont .vidlist .vid .title:hover{
+
+            color: black;
+        }
+
+        @media (max-width:991px)
+        {
+            .cont{
+                
+                grid-template-columns: 1.5fr 1fr;
+                
+                padding: 10px;
+            }
+
+        }
+
+        @media (max-width:768px)
+        {
+            .cont{
+                
+                grid-template-columns: 1fr;
+               
+            }
+
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <h3 class="heading">
+        Asur Season 1
+    </h3>
+    <div class="cont">
+    <div class="mainvideo">
+        <div class="video">
+            <video src="as1.mp4" controls muted autoplay></video>
+            <h3 class="title">Asur 1</h3>
+        </div>
+        
+    </div>
+    <div class="vidlist">
+        <div class="vid active">
+            <video src="as1.mp4" muted ></video>
+            <h3 class="title">Asur 1</h3>
+        </div>
+        <div class="vid">
+            <video src="as2.mp4"  muted ></video>
+            <h3 class="title">Asur 2</h3>
+        </div>
+        <div class="vid">
+            <video src="as3.mp4"  muted ></video>
+            <h3 class="title">Asur 3</h3>
+        </div>
+        <div class="vid">
+            <video src="as4.mp4"  muted ></video>
+            <h3 class="title">Asur 4</h3>
+        </div>
+        <div class="vid">
+            <video src="as5.mp4"  muted ></video>
+            <h3 class="title">Asur 5</h3>
+        </div>
+        <div class="vid">
+            <video src="as6.mp4"  muted ></video>
+            <h3 class="title">Asur 6</h3>
+        </div>
+        <div class="vid">
+            <video src="as7.mp4"  muted ></video>
+            <h3 class="title">Asur 7</h3>
+        </div>
+        <div class="vid">
+            <video src="as8.mp4"  muted ></video>
+            <h3 class="title">Asur 8</h3>
+        </div>
+
+    </div>
+    </div>
+
+    <script>
+
+        let listvid = document.querySelectorAll('.vidlist .vid');
+        let mainvid = document.querySelector('.mainvideo video');
+        let title = document.querySelector('.mainvideo .title');
+
+        listvid.forEach(video => {
+
+            video.onclick = () =>{
+
+                listvid.forEach(vid => vid.classList.remove('active'));
+                video.classList.add('active');
+                if(video.classList.contains('active'))
+                {
+                    let src = video.children[0].getAttribute('src');
+                    mainvid.src = src;
+                    let text = video.children[1].innerHTML;
+                    title.innerHTML = text;
+                }
+            };
+        });
+
+    </script>
+</body>
+</html>
